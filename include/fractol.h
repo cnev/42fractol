@@ -31,6 +31,8 @@ typedef struct		s_env
 {
 	t_info			info;
 	t_data			data;
+	t_mlx			mlx;
+	int				type;
 }					t_env;
 
 #endif

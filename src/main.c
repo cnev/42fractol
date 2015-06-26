@@ -30,3 +30,4 @@ int					main(int ac, char **av)
 		ft_putendl("Error detecting type. [julia | mandelbrot | buddhabrot");
 	return (0);
 }
+`

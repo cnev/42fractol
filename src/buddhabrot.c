@@ -1,5 +1,5 @@
 #include "../include/fractol.h"
-
+http://sdz.tdct.org/sdz/dessiner-la-fractale-de-mandelbrot.html
 void			init_buddhabrot(t_info *info, t_data *data)
 {
 	info->x1 = -2.1;
@@ -12,6 +12,8 @@ void			init_buddhabrot(t_info *info, t_data *data)
 	info->image_y = (info->y2 - info->y1) * zoom;
 }
 
+static
+
 int				calc_buddhabrot(t_info *info, t_data *data, t_list **list)
 {
 	float			tmp;
@@ -20,7 +22,7 @@ int				calc_buddhabrot(t_info *info, t_data *data, t_list **list)
 	data->z_r = data->z_r * data->z_r - data->z_i * data->z_i + data->c_r;
 	data->z_i =2 * data->z_i * tmp + data->c_i;
 	data->i++;
-	list_pushback(list, create_buddha_data((data->z_r - info->x1) * info->zoom,
+	list_pushback(list, create_data((data->z_r - info->x1) * info->zoom,
 		(data->z_i - info->y1) * info->zoom);
 	while (data->z_r * data->z_r + data->z_i*data->z_i < 4
 		&& data->i < info->max_iter)
@@ -29,11 +31,13 @@ int				calc_buddhabrot(t_info *info, t_data *data, t_list **list)
 		data->z_r = data->z_r * data->z_r - data->z_i * data->z_i + data->c_r;
 		data->z_i =2 * data->z_i * tmp + data->c_i;
 		data->i++;
-		list_pushback(list, create_buddha_data((data->z_r - info->x1) * info->zoom,
+		list_pushback(list, create_data((data->z_r - info->x1) * info->zoom,
 		(data->z_i - info->y1) * info->zoom);
 	}
-	return (data->i)
+	return (data->i);
 }
+
+void			build_pixel_array(int **pixels, t_info *info)
 
 int				exec_buddhabrot(t_env *e)
 {
